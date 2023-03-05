@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/mojibakara/k8s-devsecops-security-CD
+    repoURL: https://github.com/mojibakara/k8s-devsecops-security-CD.git
     targetRevision: HEAD
     path: dev
   destination:
