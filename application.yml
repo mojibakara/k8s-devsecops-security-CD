@@ -1,22 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: myapp-argo-application
+  name: guestbook
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/mojibakara/k8s-devsecops-security-CD
     targetRevision: HEAD
-    path: dev
+    path: guestbook
   destination:
     server: https://kubernetes.default.svc
-    namespace: myapp
-  
-  syncPolicy:
-    syncOptions:
-    - CreateNamespace=true
-
-    automated:
-      slefHeal: true
-      prune: true
+    namespace: guestbook
