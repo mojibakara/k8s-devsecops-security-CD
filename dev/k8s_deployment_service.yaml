@@ -17,7 +17,7 @@ spec:
     spec:
       serviceAccountName: default
       containers:
-      - image: mojibakara/numeric-app:f50026407b16c5e3011c51158268405d1b9a76d9
+      - image: mojibakara/numeric-app:latest
         name: devsecops-container
         securityContext:
           runAsNonRoot: true
