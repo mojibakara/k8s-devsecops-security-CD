@@ -1,6 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  annotations:
+    argocd-image-updater.argoproj.io/git-branch: main
+    argocd-image-updater.argoproj.io/image-list: docker.io/mojibakara/numeric-app:~v2
+    argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/githubsecret
   name: myapp
   namespace: argocd
 spec:
@@ -9,10 +13,12 @@ spec:
     #repoURL: https://github.com/mojibakara/k8s-devsecops-security-CD.git
     repoURL: git@github.com:mojibakara/k8s-devsecops-security-CD.git
     targetRevision: HEAD
-    path: dev
+    path: .
+    kustomize:
+      version: v5.0.0
   destination:
     server: https://kubernetes.default.svc
-    namespace: myapp
+    namespace: default
   
   syncPolicy:
     syncOptions:
