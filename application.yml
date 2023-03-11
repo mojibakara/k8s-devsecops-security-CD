@@ -3,8 +3,12 @@ kind: Application
 metadata:
   annotations:
     argocd-image-updater.argoproj.io/git-branch: main
-    argocd-image-updater.argoproj.io/image-list: docker.io/mojibakara/numeric-app:~v2
-    argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/githubsecret
+    argocd-image-updater.argoproj.io/image-list: myalias=docker.io/mojibakara/numeric-app
+    argocd-image-updater.argoproj.io/myalias.update-strategy: latest
+    #argocd-image-updater.argoproj.io/write-back-method: argocd
+    argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/githubsecret2
+  #  argocd-image-updater.argoproj.io/write-back-target: kustomization
+    argocd-image-updater.argoproj.io/myalias.force-update: "true"
   name: myapp
   namespace: argocd
 spec:
@@ -15,15 +19,17 @@ spec:
     targetRevision: HEAD
     path: .
     kustomize:
-      version: v5.0.0
+      version: v4.5.7
   destination:
     server: https://kubernetes.default.svc
     namespace: default
-  
+
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
 
     automated:
-      selfHeal: true
+      selfHeal: false
       prune: true
+
+
