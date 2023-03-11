@@ -18,6 +18,7 @@ spec:
       serviceAccountName: default
       containers:
       - image: mojibakara/numeric-app:2.3.5.RELEASE-191
+        imagePullPolicy: Always
         name: devsecops-container
         securityContext:
           runAsNonRoot: true
