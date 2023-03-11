@@ -15,14 +15,14 @@ spec:
       labels:
         app: devsecops
     spec:
-      serviceAccountName: default
+      #serviceAccountName: default
       containers:
       - image: mojibakara/numeric-app:2.3.5.RELEASE-191
-        imagePullPolicy: Always      
+        imagePullPolicy: Always
         name: devsecops-container
-        securityContext:
-          runAsNonRoot: true
-          runAsUser: 100
+        #securityContext:
+          #runAsNonRoot: true
+          #runAsUser: 100
           #readOnlyRootFilesystem: true
 ---
 apiVersion: v1
