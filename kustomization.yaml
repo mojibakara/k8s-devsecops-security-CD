@@ -4,4 +4,4 @@ resources:
 - k8s_deployment_service.yaml
 images:
 - name: docker.io/mojibakara/numeric-app
-  newTag: 2.3.5.RELEASE-197
+  newTag: 2.3.5.RELEASE-272
