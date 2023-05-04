@@ -1,3 +1,3 @@
 kustomize:
   images:
-  - docker.io/mojibakara/numeric-app:2.3.5.RELEASE-194
+  - docker.io/mojibakara/numeric-app:05a001a905ee8956fb377e30b1a8e7cbccd06c8f
